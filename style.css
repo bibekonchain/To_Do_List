@@ -1,77 +1,118 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body{
-   background-image: linear-gradient(to right, #526c8e, #808ca9, #acaec4, #d4d3e0, #fbfafd);
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: linear-gradient(135deg, #667eea, #764ba2);
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container{
-    max-width: 400px;
-    padding: 20px;
-    border: 5px solid whitesmoke;
-    border-radius: 10px;
-    margin: auto;
-    max-height: auto;
-    position: relative;
-    top: 50px;
-    background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
-    box-shadow: 20px -25px 20px -20px rgba(0,0,0,0.45),
-    25px 0px 20px -20px rgba(0,0,0,0.45),
-    0px 20px 20px -20px rgba(0,0,0,0.45),
-    -25px 20px 20px -20px rgba(0,0,0,0.45);
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    color: white;
 }
 
+/* Heading */
 .heading{
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 600;
 }
 
-input,input:focus{
-    background: rgba(0,0,0,0.2);
-    padding: 15px;
-    width: 93%;
-    font-size: 18px;
-    border-radius: 2px;
-    outline: none;
+/* Inputs */
+input{
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
     border: none;
+    outline: none;
+    font-size: 16px;
+    margin-top: 10px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    transition: 0.3s ease;
 }
 
-::placeholder{
-    color: #526c8e;
+input::placeholder{
+    color: rgba(255,255,255,0.7);
 }
 
+input:focus{
+    background: rgba(255,255,255,0.3);
+}
+
+/* Add Section */
+.add label{
+    display: block;
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Todo List */
 .todos{
-    margin-top: 30px;
+    margin-top: 20px;
+    list-style: none;
 }
 
 .todos li {
-    width: 95%;
-    padding: 10px;
-    background-color: black;
-    font-size: 1.2em;
-    color: white;
-    border-radius: 5px;
-    border-bottom: 2px solid white;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.2);
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    transition: 0.3s ease;
 }
 
-label{
-    display: block;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    font-size: 25px;
-    font-weight: bold;
-    text-align: center;
+.todos li:hover{
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.3);
 }
 
+/* Delete Icon */
+.delete{
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.delete:hover{
+    color: #ff4d4d;
+    transform: scale(1.2);
+}
+
+/* Hidden filter */
 .filtered{
     display: none !important;
 }
 
-.delete{
-    cursor: pointer;
+/* Smooth appearance animation */
+.todos li{
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
